@@ -1,0 +1,357 @@
+/* ===========================================================
+   ESTILO PROFESIONAL — PALETA ROSA / VERDE / BLANCO
+   - Menú compacto y anclado
+   - Animaciones suaves y transiciones limpias
+   - Cuadros centrados y simétricos
+   - Layout moderno y responsivo
+   =========================================================== */
+
+/* --------------------------
+   VARIABLES
+   -------------------------- */
+:root {
+  --pink-700: #d63384;
+  --pink-600: #e43e86;
+  --pink-400: #f59bc5;
+  --pink-200: #fce4ec;
+
+  --green-700: #2f946d;
+  --green-600: #38a67c;
+  --green-400: #68d0a4;
+
+  --bg-100: #fffafc;
+  --bg-200: #fff5f7;
+  --text: #1a1c1e;
+  --muted: #6c717a;
+
+  --card-bg: #ffffff;
+  --shadow-light: 0 4px 18px rgba(24, 32, 38, 0.06);
+  --shadow-strong: 0 12px 36px rgba(24, 32, 38, 0.12);
+  --radius-card: 16px;
+  --container-max: 1180px;
+
+  --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --header-height: 70px;
+  --header-height-small: 55px;
+}
+
+/* --------------------------
+   BASE / RESETEO
+   -------------------------- */
+* {
+  user-select: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Momo Trust Sans", sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg-100), #fff);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  padding-top: var(--header-height);
+  -webkit-font-smoothing: antialiased;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* --------------------------
+   HEADER / MENÚ ANCLADO
+   -------------------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, var(--pink-600), var(--green-600));
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s var(--ease);
+  z-index: 1000;
+}
+.header-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: padding 0.3s var(--ease);
+}
+.header.small .header-inner {
+  padding: 0.45rem 1.2rem;
+}
+
+/* Título */
+.titulo {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Menú */
+.menu ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 1.2rem;
+}
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.96rem;
+  padding: 0.4rem 0.3rem;
+  position: relative;
+  transition: color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: width 0.3s var(--ease);
+}
+.menu a:hover {
+  transform: translateY(-2px);
+}
+.menu a:hover::after {
+  width: 100%;
+}
+
+/* --------------------------
+   RESPONSIVE MENÚ
+   -------------------------- */
+@media (max-width: 850px) {
+  .header-inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+  .menu ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+}
+
+/* --------------------------
+   MAIN / SECCIONES
+   -------------------------- */
+.main {
+  max-width: var(--container-max);
+  margin: 2.5rem auto 3rem;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.4rem;
+}
+
+/* --------------------------
+   TARJETAS / CUADROS
+   -------------------------- */
+.seccion {
+  background: var(--card-bg);
+  border-radius: var(--radius-card);
+  padding: 2rem 2.2rem;
+  box-shadow: var(--shadow-light);
+  border: 1px solid rgba(228, 62, 134, 0.08);
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.seccion:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: var(--shadow-strong);
+}
+
+/* Barra superior decorativa */
+.seccion::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--pink-600), var(--green-500));
+  border-radius: 5px;
+}
+
+/* Subtítulo */
+.subtitulo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--pink-600);
+  margin-bottom: 1.2rem;
+}
+
+/* Texto */
+.texto {
+  text-align: center;
+  font-size: 1.15rem;
+  margin-top: 1rem;
+}
+.texto p {
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+/* GRID INTERNO DE IMAGEN + TEXTO */
+.content-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+.media {
+  flex: 1 1 320px;
+  display: flex;
+  justify-content: center;
+}
+.imagen {
+  border-radius: 14px;
+  box-shadow: var(--shadow-light);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.imagen:hover {
+  transform: scale(1.04);
+  box-shadow: var(--shadow-strong);
+}
+
+/* --------------------------
+   VIDEO CONTAINER
+   -------------------------- */
+.video-container {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: var(--shadow-strong);
+  margin-top: 1.2rem;
+}
+.video-container iframe {
+  width: 100%;
+  height: 420px;
+  border: none;
+  display: block;
+}
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  backdrop-filter: blur(8px) brightness(1.05);
+  background: rgba(255, 255, 255, 0.45);
+  transition: opacity 0.45s var(--ease), visibility 0.45s var(--ease);
+  z-index: 10;
+}
+.video-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Botón del video */
+.btn-ver-video {
+  padding: 1rem 1.9rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--pink-600), var(--green-600));
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(90, 193, 142, 0.18);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.btn-ver-video:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px rgba(90, 193, 142, 0.22);
+}
+.play-icon {
+  width: 0;
+  height: 0;
+  border-left: 10px solid #fff;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+/* --------------------------
+   ANIMACIONES DE ENTRADA
+   -------------------------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.seccion {
+  animation: fadeUp 0.6s var(--ease) both;
+}
+.seccion:nth-child(2) { animation-delay: 0.1s; }
+.seccion:nth-child(3) { animation-delay: 0.15s; }
+.seccion:nth-child(4) { animation-delay: 0.2s; }
+
+/* --------------------------
+   FOOTER
+   -------------------------- */
+.footer {
+  background: linear-gradient(90deg, var(--pink-400), var(--green-600));
+  color: #ffffff; /* texto en blanco para buen contraste sobre el gradiente */
+  text-align: center;
+  padding: 1.6rem;
+  margin: 3rem auto 1.5rem;
+  border-radius: 14px;
+  max-width: var(--container-max);
+  box-shadow: 0 -4px 18px rgba(24, 32, 38, 0.06);
+  font-weight: 600;
+  line-height: 1.5;
+
+  /* mejora de layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* --------------------------
+   RESPONSIVE
+   -------------------------- */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .video-container iframe { height: 340px; }
+  .btn-ver-video { padding: 0.85rem 1.6rem; font-size: 0.95rem; }
+}
+@media (max-width: 480px) {
+  .video-container iframe { height: 240px; }
+  .titulo { font-size: 1.2rem; }
+  .menu ul { gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+  .seccion { padding: 1.2rem; }
+  .footer {
+    padding: 1.1rem;
+    margin: 2rem 0 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+  }
+}
